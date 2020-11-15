@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量</title>
+</head>
+<body>
+    <h1>变量</h1>
+    <div>控制台练习</div>
+</body>
+</html>
+<script>
+    //声明变量三种方式：var let const
+
+    // var message    //变量初始化，定义变量
+
+    // var message = 'hi'  //message被定义为一个保存字符串值hi的变量
+
+    // var message = 'hi'
+    // message = 100  //合法，但不推荐改变变量保存值的类型
+
+    // var 声明作用域
+    // function fn(){
+    //     var message = 'hi'   // 局部变量
+    // }
+    // fn()
+    // console.log(message)    // 报错 message is not defined
+
+    // function fn1(){
+    //     message = 'hi'    //全局变量
+    // }
+    // fn1()
+    // console.log(message)   // 'hi' 在局部作用域中定义的全局变量很难维护，严格模式下，会抛出ReferenceError
+
+
+    // 定义多个变量,逗号分隔，严格模式下，不能定义名为eval和arguments的变量，会导致语法错误
+    // var message = 'hi',
+    //     found = false,
+    //     age = 29
+
+
+    // var 声明提升
+    // 下面的代码不会报错，是因为这个关键字声明的变量会自动提升到函数作用域的顶部
+    // function foo(){
+    //     console.log(age)
+    //     var age = 26
+    // }
+    // foo()  //undefined
+    // 等价与下面这段代码
+    // function foo(){
+    //     var age 
+    //     console.log(age);
+    //     age = 26
+    // }
+    // foo()  //undefined
+
+    //反复多次声明同意变量也没有问题
+    // function foo(){
+    //     var age = 17
+    //     var age = 28
+    //     var age = 98
+    //     console.log(age);
+    // };
+    // foo()  //98
+
+
+
+    // let 声明
+    // 与var作用差不多，只要区别在于let声明的范围是块作用域，var声明的范围是函数作用域
+    // if(true){
+    //     var name = 'mike'
+    //     console.log(name); //mike
+    // };
+    // console.log(name); //mike
+
+    // if(true){
+    //     let age = 29
+    //     console.log(age); //29
+    // };
+    // console.log(age); //age is not defined
+
+    // let 不允许同一块作用域中出现冗余声明，会导致报错
+    // var name 
+    // var name 
+
+    // let age 
+    // let age  // Identifier 'age' has already been declared
+
+    // 嵌套使用相同的标识符不会报错，因为同一块中没有重复声明
+    // var name = 'lisi'
+    // console.log(name); //'lisi'
+    // if(true){
+    //     var name = 'lina' // 'lina'
+    //     console.log(name);
+    // };
+
+    // let age = 30
+    // console.log(age); //30
+    // if(true){
+    //     let age = 72
+    //     console.log(age); // 72
+    // }
+
+
+    // 对于声明冗余不会因为混用let和var而受到影响
+    // var name
+    // let name  //Identifier 'name' has already been declared
+    
+    // let age
+    // var age //Identifier 'age' has already been declared
+
+
+    // let 暂时性死区  let 声明的变量不会在作用域中被提升
+
+    // perpon 被提升
+    // console.log(post); //undefined
+    // var post = 'abc'
+    
+    // // age不会被提升
+    // console.log(age);  // Cannot access 'age' before initialization
+    // let age = 18 
+
+    // 全局声明  与var不同，let在全局作用域中声明的变量不会成为window对象的属性
+    // var mail = 'reb1orn.gmail.com'
+    // console.log(window.mail); //reb1orn.gmail.com
+
+    // let age = 30
+    // console.log(window.age); //undefined
+    // let声明在全局作用域中发生的，会在页面的生命周期内存续，因此，要确保页面不会重复声明同一变量
+
+    // 条件声明
+    // let不能依赖条件声明模式
+
+    // for循环中的let声明
+
+    // var定义的迭代变量会渗透到循环体外部
+    // for(var i=0;i<5;++i){
+    //     //do something
+    // }
+    // console.log(i); // 5
+
+    // let 声明的迭代变量的作用域仅限在for循环块内部
+    // for(let i=0;i<5;++i){
+    //     //do something
+    // }
+    // console.log(i); // i is not defined 
+
+
+    //迭代变量保存的是导致循环推出的值
+    // for(var i=0;i<5;++i){
+    //     setTimeout(() => {
+    //         console.log(i); // 5,5,5,5,5
+    //     }, 0);
+    // }
+
+    // js引擎会为每个迭代循环声明一个新的迭代变量，每个定时器引用的都是不同的变量实例
+    // for(let i=0;i<5;++i){
+    //     setTimeout(() => {
+    //         console.log(i); // 0,1,2,3,4
+    //     }, 0);
+    // }
+    // 这种风格的迭代声明适用所有for循环，for-in和for-of
+
+
+    // const声明，声明变量时必须同时初始化变量，若修改变量会导致报错
+    const age = 36
+
+    // const声明可修改引用对象内部的属性
+    const person = {}
+    person.name = 'zhangsan'
+
+    //const 不能用来声明迭代变量,可以用来声明一个不会被修改的循环变量
+    for(const value of [1,2,3,4]){
+        console.log(value); // 1,2,3,4
+    }
+
+    for(const key in {a:1,b:2}){
+        console.log(key);  // a,b
+    }
+
+
+
+</script>
