@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+</head>
+<body>
+<h1>数据类型</h1>
+<div>详见控制台</div>
+</body>
+</html>
+<script>
+    //6种原始类型：undefined,null,boolean,number,string,symbol
+    //1种复杂数据类型：object
+    
+
+    // typeof 操作符,用来确定任意变量的数据类型
+
+    // let message = 'some string'
+    // console.log(typeof(message)); // string
+    // console.log(typeof message);  // string
+    // console.log(typeof 95);       // number
+    // console.log(typeof null);     // object
+    // let fn = function() {
+    //     console.log(123);
+    // }
+    // console.log(typeof(fn));      // function
+    
+
+    // undefined类型   唯一值 undefined
+    // 使用let/var声明变量但没有赋值（初始化），值为undefined
+
+
+    // null类型   唯一值  null，表示一个空对象指针
+
+    // let car = null
+    // console.log(typeof car);    // object
+
+
+    // Boolean类型 有两个字面值：true/false
+    // 所有数据类型都可以通过调用Boolean()转型函数，来得到一个对应的布尔值
+
+    // let message = 'hello'
+    // console.log(Boolean(message));  //true
+
+
+    // Number 类型  表示整数和浮点数 不同的数据类型有相应的不用数值字面量格式
+
+    // 最基本的数值字面量格式是十进制整数
+    // let intNum = 98
+    //整数也可以用八进制或者十六进制字面量表示
+    // 八进制 第一个数字必须是0 ，在严格模式下是无效的，会抛出错误
+    // 十六进制 数字前缀 0x
+    // 正零（+0）和负零（-0） 在所有情况下被认为是等同的
+
+
+    //浮点值  数值种必须包含小数点，小数点后必须至少有一个数字
+
+    //存储浮点数值使用的内存空间是存储整数值的两倍
+    
+    //科学计数法  一个数值（整数/浮点数）+字母e + 要乘的10的多少次幂
+    // let floatNum = 1.23e7
+
+    // 值的范围
+    // 最大值：Number.MAX_VALUE
+    // 最小值：Number.MIN_VALUE
+    // 超出范围：Infinity(正无穷大)/-Infinity(负无穷大)
+    // 确定一个值是不是有限大：使用inFinite()
+    // let result = Number.MAX_VALUE + Number.MAX_VALUE
+    // console.log(isFinite(result));  // false
+    
+
+    // NaN 表示 不是数值，本来要返回数值的操作失败了（而不是抛出错误）
+    // console.log(NaN == NaN); //false
+    // isNaN(),接收一个参数，可以是任意数据类型
+    // console.log(isNaN(NaN)); // true
+    // console.log(isNaN('10')); // false
+    // console.log(isNaN(true));   // false
+    // console.log(isNaN('blue')); // true
+
+
+    // 数值转换 
+    // 可以将非数值转换为数值的三个方法 
+    // Number() 用于任何数据类型
+    // parseInt() 字符串 不带小数点
+    // parseFloat() 字符串  带小数点
+
+
+    // String 类型
+
+    // 字符串长度 length
+    // let text = 'hello world'
+    // console.log(text.length); //11
+
+    // 转换字符串 
+    // toString()       
+    // String() 不能确定是不是null/undefined时使用
+    // + 加号操作符 值+一个空的字符串， 也可以将其转换为字符串
+
+    // 模板字面量 反引号`` 不是字符串，而是一种特殊的js句法表达式，求值后得到的是字符串
+    // let message = 'hello\world'
+    // let messageStr = `java
+    // javascript
+    // world`
+    // console.log(message);
+    // console.log(messageStr);
+
+    
+    // 字符串插值 ${}
+    // let str = 'hello'
+    // let value = 'world'
+    // // 之前
+    // let str1 = str + value
+    // // 插值
+    // let str2 = `hello${value}`
+    // console.log(str1,str2);
+    // 所有插值都会使用toString()强制转换为字符串
+
+    // 标签函数
+
+
+    //原始字符串
+
+
+
+    // Symbol 类型
+    
+
+
+
+
+
+</script>
